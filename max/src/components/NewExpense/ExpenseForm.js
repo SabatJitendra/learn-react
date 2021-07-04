@@ -7,6 +7,7 @@ const ExpenseForm = (props) => {
         enteredAmount: '',
         enteredDate: ''
     });
+    const [isFormVisible,setFormVisibility] = useState(false);
     
     const titleChangeHandler = (event) => {
         updateUserInput({
@@ -48,10 +49,17 @@ const ExpenseForm = (props) => {
                 enteredDate: ''
             };
         });
+        toggleVisibility();
     }
+
+    const toggleVisibility = () => {
+        setFormVisibility(!isFormVisible);
+    }
+
     //Binding form field value attribute to state variables is known as two way binding.This way if we change something in field value,it will be 
     //automagically stored in state and vice versa.
     return <div>
+        {!isFormVisible ? <button type="button" onClick={toggleVisibility}>Add New Expense</button> :
         <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
@@ -68,9 +76,11 @@ const ExpenseForm = (props) => {
                 </div>
             </div>
             <div className="new-expense__actions">
+                <button type="button" onClick={toggleVisibility}>Cancel</button>
                 <button type="submit">Add Expense</button>
             </div>
         </form>
+        }                
     </div>
 }
 

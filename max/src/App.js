@@ -70,7 +70,7 @@ function App() {
       <Card className="container">
         <NewExpense onNewExpenseAdded={receiveNewData}/>
         <ExpensesFilter onYearChange={onYearChange}/>
-        {expenseItemsArray.map((item,index) => 
+        {expenseItemsArray.length === 0 ? <p>No items found for the selected year.</p> :  expenseItemsArray.map((item,index) => 
           (<ExpenseItem date={item.date} 
                         title={item.title} 
                         price={item.price} 
