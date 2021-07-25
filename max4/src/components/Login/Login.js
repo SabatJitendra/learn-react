@@ -5,9 +5,9 @@ import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 
 const Login = (props) => {
-  const [enteredEmail, setEnteredEmail] = useState('');
+  const [enteredEmail, setEnteredEmail] = useState('abcd@gmail.com');
   const [emailIsValid, setEmailIsValid] = useState();
-  const [enteredPassword, setEnteredPassword] = useState('');
+  const [enteredPassword, setEnteredPassword] = useState('12345678');
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
